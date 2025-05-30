@@ -1,6 +1,5 @@
-import React from 'react'
 import { motion } from 'framer-motion'
-import { Users, Calendar, Horse, Sparkles, Heart } from 'lucide-react'
+import { Users, Calendar, Activity, Sparkles, Heart } from 'lucide-react'
 
 const Services = () => {
   const services = [
@@ -26,7 +25,7 @@ const Services = () => {
       link: '#studio'
     },
     {
-      icon: Horse,
+      icon: Activity,
       title: 'Equestrian Pilates',
       description: 'Specialised programme for riders. Improve your seat, balance, and communication with your horse.',
       image: '/client-content/Equestrian Pilates Sessions .webp',
