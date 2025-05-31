@@ -38,62 +38,16 @@
 
 **Your Project ID**: `free-rein-pilates-001`
 
-**MANDATORY**: Use MCP Bridge System for all Claude-to-Claude communication.
-
-### Registration Required
-```javascript
-// Register when you start
-const instanceData = {
-    claude_id: 'free-rein-pilates-001',
-    capabilities: ['web-development', 'pilates-website', 'react', 'deployment'],
-    status: 'online',
-    metadata: { 
-        role: 'child', 
-        project_type: 'pilates-business-website',
-        client: 'Free Rein Pilates',
-        location: '/Users/agriv8r/Documents/python/Master Claude/projects/free-rein-pilates/'
-    }
-};
-
-await fetch('https://yiffafrjaoztveqgvjlk.supabase.co/rest/v1/mcs_claude_instances', {
-    method: 'POST',
-    headers: { 
-        'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlpZmZhZnJqYW96dHZlcWd2amxrIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0ODAzMzU1MSwiZXhwIjoyMDYzNjA5NTUxfQ.mt7gKml2xA2VZFhPjGtLQ73kkrGIDHnP8iFCMCySaiw', 
-        'Content-Type': 'application/json' 
-    },
-    body: JSON.stringify(instanceData)
-});
-```
-
-### Communication Examples
-```javascript
-// Send message to Master Claude
-const messageData = {
-    sender_id: 'your-instance-id',
-    recipient_id: 'master-claude-instance-id',
-    message_type: 'completion',
-    content: { 
-        subject: 'Free Rein Pilates Website Complete',
-        message: 'Pilates website deployed successfully to production'
-    }
-};
-```
+- ✅ Use mcs_bridge_messages for messages
 
 ## 🏢 CLI FIRST OPERATIONS
 
-**For GitHub/Netlify Access:**
+**Use Official CLIs (Commercial Grade):**
 ```bash
-# Use Official CLIs (Commercial Grade)
+# CLI Tools
 gh auth login    # GitHub CLI
 netlify login    # Netlify CLI
 supabase login   # Supabase CLI
-
-# Repository Management
-gh repo create WebSmartTeam/free-rein-pilates --private
-git remote add origin https://github.com/WebSmartTeam/free-rein-pilates.git
-
-# Deployment
-netlify deploy --prod --dir=dist
 ```
 
 ## Project Overview
@@ -175,13 +129,7 @@ npm run preview
 # Build the project
 npm run build
 
-# Deploy to Netlify
-netlify deploy --prod --dir=dist
-
-# Commit and push to GitHub
-git add .
-git commit -m "feat: update pilates website"
-git push origin main
+# Deployment steps to be configured by Master Claude
 ```
 
 ## 📋 Technical Stack
@@ -190,7 +138,7 @@ git push origin main
 - **Build Tool**: Vite
 - **Styling**: Tailwind CSS
 - **Deployment**: Netlify
-- **Repository**: GitHub (WebSmartTeam organization)
+- **Repository**: TBD (to be configured)
 - **Domain**: TBD (to be configured)
 
 ## 🎯 Key Features
@@ -253,10 +201,10 @@ This project follows UK English spelling and grammar conventions:
 
 ## Git Integration
 
-- **Repository**: WebSmartTeam/free-rein-pilates (private)
+- **Repository**: TBD (to be configured by Master Claude)
 - **Branch Strategy**: feature branches for development, main for production
 - **Commit Standards**: Conventional commits with clear descriptions
-- **Deployment**: Automatic deployment from main branch to Netlify
+- **Deployment**: TBD (to be configured by Master Claude)
 
 ---
 
