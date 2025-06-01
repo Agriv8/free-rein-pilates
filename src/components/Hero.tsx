@@ -25,10 +25,11 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
         >
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display text-white mb-6 leading-tight">
-            Free Rein
-            <span className="block text-pilates-beige">Pilates</span>
-          </h1>
+          <img 
+            src="/client-content/Main Logo-White-RGB.webp" 
+            alt="Free Rein Pilates" 
+            className="h-32 sm:h-40 md:h-48 lg:h-56 mx-auto mb-6"
+          />
           
           <p className="text-lg sm:text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-10 font-light">
             Enabling all to access Pilates through community courses, personal studio sessions, 
@@ -39,6 +40,7 @@ const Hero = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
               className="px-8 py-4 bg-white text-pilates-dark rounded-full font-medium hover:bg-pilates-sand transition-all shadow-lg"
             >
               Explore Our Services
@@ -46,6 +48,7 @@ const Hero = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-full font-medium hover:bg-white hover:text-pilates-dark transition-all"
             >
               Book Your First Class
