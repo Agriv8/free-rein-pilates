@@ -56,15 +56,17 @@ const Hero = () => {
           </div>
         </motion.div>
 
-        {/* Scroll indicator */}
-        <motion.div
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        >
-          <ChevronDown className="text-white/70 w-8 h-8" />
-        </motion.div>
+        {/* Scroll indicator - moved outside content div to prevent overlap */}
       </div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20"
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 2, repeat: Infinity }}
+      >
+        <ChevronDown className="text-white/70 w-8 h-8" />
+      </motion.div>
 
       {/* Decorative shapes */}
       <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-pilates-cream to-transparent z-15" />
