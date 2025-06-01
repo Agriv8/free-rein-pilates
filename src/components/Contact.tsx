@@ -3,10 +3,10 @@ import { motion } from 'framer-motion'
 import { Phone, Mail, MapPin, Instagram, Facebook, Send } from 'lucide-react'
 import { createClient } from '@supabase/supabase-js'
 
-// Initialize Supabase client
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || ''
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || ''
-const supabase = createClient(supabaseUrl, supabaseAnonKey)
+// Initialize Supabase client (disabled for now - no environment variables set)
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://placeholder.supabase.co'
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || 'placeholder-key'
+const supabase = supabaseUrl === 'https://placeholder.supabase.co' ? null : createClient(supabaseUrl, supabaseAnonKey)
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -25,17 +25,22 @@ const Contact = () => {
     setSubmitStatus('idle')
 
     try {
-      const { error } = await supabase
-        .from('contact_submissions')
-        .insert([
-          {
-            ...formData,
-            source: 'free-rein-pilates',
-            created_at: new Date().toISOString()
-          }
-        ])
+      if (supabase) {
+        const { error } = await supabase
+          .from('contact_submissions')
+          .insert([
+            {
+              ...formData,
+              source: 'free-rein-pilates',
+              created_at: new Date().toISOString()
+            }
+          ])
 
-      if (error) throw error
+        if (error) throw error
+      } else {
+        // For now, just log to console when Supabase is not configured
+        console.log('Contact form submission:', formData)
+      }
 
       setSubmitStatus('success')
       setFormData({
