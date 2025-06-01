@@ -91,17 +91,16 @@ const Navigation = () => {
                       <div className="absolute top-full left-0 pt-2 bg-transparent">
                         <div className="bg-white rounded-xl shadow-xl py-2 min-w-[220px]">
                           {link.submenu.map((sublink) => (
-                            <a
+                            <button
                               key={sublink.href}
-                              href={sublink.href}
-                              onClick={(e) => {
-                                e.preventDefault()
+                              onClick={() => {
                                 handleNavClick(sublink.href)
+                                setServicesDropdownOpen(false)
                               }}
-                              className="block px-4 py-2 text-pilates-dark hover:bg-pilates-rose/10 hover:text-pilates-rose transition-colors"
+                              className="block w-full text-left px-4 py-2 text-pilates-dark hover:bg-pilates-rose/10 hover:text-pilates-rose transition-colors"
                             >
                               {sublink.label}
-                            </a>
+                            </button>
                           ))}
                         </div>
                       </div>
