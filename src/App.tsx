@@ -1,6 +1,5 @@
 import Navigation from './components/Navigation'
 import Hero from './components/Hero'
-import Services from './components/Services'
 import About from './components/About'
 import Retreats from './components/Retreats'
 import Testimonials from './components/Testimonials'
@@ -12,7 +11,6 @@ function App() {
     <div className="min-h-screen bg-pilates-cream">
       <Navigation />
       <Hero />
-      <Services />
       <About />
       <Retreats />
       <Testimonials />

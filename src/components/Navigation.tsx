@@ -88,20 +88,22 @@ const Navigation = () => {
                     </button>
                     
                     {servicesDropdownOpen && (
-                      <div className="absolute top-full left-0 mt-2 bg-white rounded-xl shadow-xl py-2 min-w-[220px]">
-                        {link.submenu.map((sublink) => (
-                          <a
-                            key={sublink.href}
-                            href={sublink.href}
-                            onClick={(e) => {
-                              e.preventDefault()
-                              handleNavClick(sublink.href)
-                            }}
-                            className="block px-4 py-2 text-pilates-dark hover:bg-pilates-rose/10 hover:text-pilates-rose transition-colors"
-                          >
-                            {sublink.label}
-                          </a>
-                        ))}
+                      <div className="absolute top-full left-0 pt-2 bg-transparent">
+                        <div className="bg-white rounded-xl shadow-xl py-2 min-w-[220px]">
+                          {link.submenu.map((sublink) => (
+                            <a
+                              key={sublink.href}
+                              href={sublink.href}
+                              onClick={(e) => {
+                                e.preventDefault()
+                                handleNavClick(sublink.href)
+                              }}
+                              className="block px-4 py-2 text-pilates-dark hover:bg-pilates-rose/10 hover:text-pilates-rose transition-colors"
+                            >
+                              {sublink.label}
+                            </a>
+                          ))}
+                        </div>
                       </div>
                     )}
                   </div>
