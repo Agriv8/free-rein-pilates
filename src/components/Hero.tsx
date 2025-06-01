@@ -61,11 +61,12 @@ const Hero = () => {
 
       {/* Scroll indicator */}
       <motion.div
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20"
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 cursor-pointer"
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
+        onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
       >
-        <ChevronDown className="text-white/70 w-8 h-8" />
+        <ChevronDown className="text-white/70 w-8 h-8 hover:text-white transition-colors" />
       </motion.div>
 
       {/* Decorative shapes */}
