@@ -29,7 +29,7 @@ const Navigation = () => {
         { href: '/sports-therapy', label: 'Sports Therapy' }
       ]
     },
-    { href: '#book', label: 'BOOK ONLINE' },
+    { href: '/book-online', label: 'BOOK ONLINE' },
     { href: '#shop', label: 'SHOP' },
   ]
 
@@ -123,7 +123,7 @@ const Navigation = () => {
               </div>
             ))}
             <button 
-              onClick={() => handleNavClick('#contact')}
+              onClick={() => handleNavClick('/book-online')}
               className="px-6 py-2.5 bg-pilates-rose text-white rounded-full hover:bg-pilates-brown transition-all transform hover:scale-105 text-sm font-medium"
             >
               Book a Class
@@ -183,7 +183,7 @@ const Navigation = () => {
                 </div>
               ))}
               <button 
-                onClick={() => handleNavClick('#contact')}
+                onClick={() => handleNavClick('/book-online')}
                 className="w-full px-6 py-3 bg-pilates-rose text-white rounded-full hover:bg-pilates-brown transition-all text-sm font-medium"
               >
                 Book a Class

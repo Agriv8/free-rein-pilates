@@ -6,6 +6,7 @@ import MatPilates from './pages/MatPilates'
 import StudioPilates from './pages/StudioPilates'
 import EquestrianPilates from './pages/EquestrianPilates'
 import SportsTherapy from './pages/SportsTherapy'
+import BookOnline from './pages/BookOnline'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -17,6 +18,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <Route path="/studio-pilates" element={<StudioPilates />} />
         <Route path="/equestrian-pilates" element={<EquestrianPilates />} />
         <Route path="/sports-therapy" element={<SportsTherapy />} />
+        <Route path="/book-online" element={<BookOnline />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
