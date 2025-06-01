@@ -7,6 +7,7 @@ import StudioPilates from './pages/StudioPilates'
 import EquestrianPilates from './pages/EquestrianPilates'
 import SportsTherapy from './pages/SportsTherapy'
 import BookOnline from './pages/BookOnline'
+import ContactPage from './pages/ContactPage'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -19,6 +20,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <Route path="/equestrian-pilates" element={<EquestrianPilates />} />
         <Route path="/sports-therapy" element={<SportsTherapy />} />
         <Route path="/book-online" element={<BookOnline />} />
+        <Route path="/contact" element={<ContactPage />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

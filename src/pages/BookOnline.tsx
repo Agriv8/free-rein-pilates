@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Calendar, Clock, MapPin, Phone, Mail, CheckCircle } from 'lucide-react'
+import { Clock, MapPin, Phone, Mail, CheckCircle } from 'lucide-react'
 import Navigation from '../components/Navigation'
 import Footer from '../components/Footer'
 

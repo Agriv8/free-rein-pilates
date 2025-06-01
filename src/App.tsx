@@ -3,7 +3,6 @@ import Hero from './components/Hero'
 import About from './components/About'
 import Retreats from './components/Retreats'
 import Testimonials from './components/Testimonials'
-import Contact from './components/Contact'
 import Footer from './components/Footer'
 
 function App() {
@@ -14,7 +13,6 @@ function App() {
       <About />
       <Retreats />
       <Testimonials />
-      <Contact />
       <Footer />
     </div>
   )

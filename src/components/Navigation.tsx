@@ -30,6 +30,7 @@ const Navigation = () => {
       ]
     },
     { href: '/book-online', label: 'BOOK ONLINE' },
+    { href: '/contact', label: 'CONTACT' },
     { href: '#shop', label: 'SHOP' },
   ]
 
