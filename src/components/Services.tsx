@@ -1,42 +1,44 @@
 import { motion } from 'framer-motion'
 import { Users, Calendar, Activity, Sparkles, Heart } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 
 const Services = () => {
+  const navigate = useNavigate()
   const services = [
     {
       icon: Users,
       title: 'Mat Pilates Courses',
       description: 'Community classes in Shefford for all ability levels. Improve flexibility, posture, and strength in a welcoming environment.',
       image: '/client-content/Mat Pilates Courses.webp',
-      link: '#mat-pilates'
+      link: '/mat-pilates'
     },
     {
       icon: Calendar,
       title: 'Day Retreats',
       description: 'Luxury retreats at beautiful venues. Self-care, movement, and relaxation in stunning settings.',
       image: '/client-content/Wrest Park Day Retreats.webp',
-      link: '#retreats'
+      link: '/#retreats'
     },
     {
       icon: Sparkles,
       title: '1-2-1 Studio Pilates',
       description: 'Exclusive boutique home studio sessions. Personalised reformer practice tailored to your goals.',
       image: '/client-content/1-2-1- Studio Pilates.webp',
-      link: '#studio'
+      link: '/studio-pilates'
     },
     {
       icon: Activity,
       title: 'Equestrian Pilates',
       description: 'Specialised programme for riders. Improve your seat, balance, and communication with your horse.',
       image: '/client-content/Equestrian Pilates Sessions .webp',
-      link: '#equestrian'
+      link: '/equestrian-pilates'
     },
     {
       icon: Heart,
       title: 'Sports Therapy',
       description: 'Professional treatment for muscular discomfort. Restore movement and manage pain effectively.',
       image: '/client-content/ Sports Therapy Sessions .webp',
-      link: '#therapy'
+      link: '/sports-therapy'
     }
   ]
 
@@ -98,8 +100,8 @@ const Services = () => {
                 <p className="text-pilates-brown mb-6 leading-relaxed">
                   {service.description}
                 </p>
-                <motion.a
-                  href={service.link}
+                <motion.button
+                  onClick={() => service.link.startsWith('/#') ? window.location.href = service.link : navigate(service.link)}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className={`inline-flex items-center px-6 py-3 bg-pilates-beige text-pilates-dark rounded-full hover:bg-pilates-rose hover:text-white transition-all font-medium ${
@@ -110,7 +112,7 @@ const Services = () => {
                   <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
-                </motion.a>
+                </motion.button>
               </div>
             </motion.div>
           ))}
