@@ -125,7 +125,7 @@ const BookOnline = () => {
                 </p>
                 
                 <button
-                  onClick={() => document.getElementById('booking-contact')?.scrollIntoView({ behaviour: 'smooth' })}
+                  onClick={() => document.getElementById('booking-contact')?.scrollIntoView({ behavior: 'smooth' })}
                   className="w-full px-4 py-2 bg-pilates-rose text-white rounded-full hover:bg-pilates-brown transition-colors font-medium"
                 >
                   Book Now

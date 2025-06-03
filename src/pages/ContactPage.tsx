@@ -158,6 +158,28 @@ const ContactPage = () => {
                   </div>
                 </div>
 
+                <div className="mt-8 pt-8 border-t border-pilates-beige/30">
+                  <h4 className="font-semibold text-pilates-dark mb-4">Important Forms</h4>
+                  <div className="space-y-2">
+                    <a 
+                      href="/PDFs/Free Rein Pilates – Client Intake Form.pdf" 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-sm text-pilates-brown hover:text-pilates-rose transition-colors"
+                    >
+                      → Client Intake Form
+                    </a>
+                    <a 
+                      href="/PDFs/Free Rein Pilates – Informed Consent Form.pdf" 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-sm text-pilates-brown hover:text-pilates-rose transition-colors"
+                    >
+                      → Informed Consent Form
+                    </a>
+                  </div>
+                </div>
+
                 <div className="mt-8 p-6 bg-pilates-sand rounded-xl">
                   <p className="text-sm text-pilates-brown text-center">
                     <strong>Erin Pitts</strong><br />
