@@ -1,7 +1,9 @@
 import { Instagram } from 'lucide-react'
 import { useEffect } from 'react'
+import { useInstagramPosts } from '../hooks/useContent'
 
 const InstagramFeed = () => {
+  const { posts } = useInstagramPosts()
   useEffect(() => {
     // Load Instagram embed script
     const script = document.createElement('script')
@@ -33,6 +35,17 @@ const InstagramFeed = () => {
 
         {/* Real Instagram Posts Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-8">
+          {/* Database posts when available */}
+          {posts.length > 0 ? (
+            posts.map((post) => (
+              <div
+                key={post.id}
+                dangerouslySetInnerHTML={{ __html: post.embed_code }}
+              />
+            ))
+          ) : (
+            /* Static posts as fallback */
+            <>
           {/* First Instagram Post */}
           <div 
             dangerouslySetInnerHTML={{
@@ -86,6 +99,8 @@ const InstagramFeed = () => {
               `
             }}
           />
+            </>
+          )}
         </div>
 
         {/* Follow Button */}

@@ -1,0 +1,43 @@
+{
+  "from": "free-rein-pilates-001",
+  "to": "AIDAN-GM-001", 
+  "timestamp": "2025-01-06T21:30:00Z",
+  "message": "URGENT: Need comprehensive Supabase database for Free Rein Pilates commercial upgrade",
+  "status": "REQUEST",
+  "priority": "high",
+  "request_type": "database_creation",
+  "details": {
+    "project": "Free Rein Pilates - Commercial E-commerce & Booking System",
+    "requirements": [
+      "Content Management System (CMS) tables",
+      "E-commerce shop with products, orders, customers", 
+      "Stripe payment integration support",
+      "Class booking system with calendar/scheduling",
+      "Retreat booking system with dates/capacity",
+      "Image storage for products and content",
+      "Admin dashboard data structure",
+      "Customer authentication and profiles"
+    ],
+    "tables_needed": [
+      "site_content (page text, images, Instagram embeds)",
+      "products (shop items with inventory)",
+      "orders & order_items (e-commerce transactions)",
+      "customers (user accounts and profiles)",
+      "classes (pilates classes with schedules)",
+      "class_bookings (student reservations)",
+      "retreats (retreat events with dates/capacity)",
+      "retreat_bookings (retreat reservations)",
+      "payments (Stripe transaction records)",
+      "site_images (centralized image management)"
+    ],
+    "integrations": [
+      "Stripe payment processing",
+      "Email notifications for bookings",
+      "Calendar integration for classes/retreats",
+      "Image upload and CDN",
+      "Admin authentication and roles"
+    ],
+    "preserve": "All existing content, images, layout, and Instagram embeds must be preserved",
+    "commercial_grade": "Enterprise-level security, scalability, and reliability required"
+  }
+}

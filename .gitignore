@@ -1,4 +1,88 @@
-# Logs
+# === MANDATORY LARGE FILE PROTECTION ===
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+*.db
+
+# Media files
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.flv
+*.wmv
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.bmp
+*.tiff
+*.svg
+*.webp
+*.ico
+
+# Archives
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+
+# Backups and dumps
+*backup*
+*-backup.*
+*_backup.*
+*.bak
+*dump*
+*.dump
+
+# Environment and secrets
+.env
+.env.local
+.env.production
+.env.staging
+*.pem
+*.key
+*.cert
+
+# IDE and OS
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Coverage and testing
+coverage/
+.nyc_output/
+.coverage
+htmlcov/
+
+# Cache directories
+.cache/
+.parcel-cache/
+.sass-cache/
+
+# Documentation builds
+docs/_build/
+site/
+
+# === END PROTECTION ===
+\n# Logs
 logs
 *.log
 npm-debug.log*

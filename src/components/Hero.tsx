@@ -1,14 +1,16 @@
 import { motion } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
+import { usePageContent } from '../hooks/useContent'
 
 const Hero = () => {
+  const { content } = usePageContent('home')
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div 
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: `url('/client-content/home page banner.webp')`,
+          backgroundImage: `url('${content?.hero?.image || '/client-content/home page banner.webp'}')`,
           backgroundSize: 'cover',
           backgroundPosition: 'centre',
           filter: 'brightness(0.7)'
@@ -32,8 +34,7 @@ const Hero = () => {
           />
           
           <p className="text-lg sm:text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-10 font-light">
-            Enabling all to access Pilates through community courses, personal studio sessions, 
-            equestrian clinics, and luxury retreats
+            {content?.hero?.subtitle || 'Enabling all to access Pilates through community courses, personal studio sessions, equestrian clinics, and luxury retreats'}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -43,7 +44,7 @@ const Hero = () => {
               onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
               className="px-8 py-4 bg-white text-pilates-dark rounded-full font-medium hover:bg-pilates-sand transition-all shadow-lg"
             >
-              Explore Our Services
+              {content?.hero?.cta || 'Explore Our Services'}
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.05 }}
