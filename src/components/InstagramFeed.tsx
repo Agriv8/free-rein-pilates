@@ -34,36 +34,88 @@ const InstagramFeed = () => {
             </a>
           </div>
 
-          {/* Instagram Grid Preview */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-2xl mx-auto">
+          {/* Instagram Posts Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
             {[
-              { title: "Studio Sessions", desc: "1-2-1 Pilates" },
-              { title: "Mat Classes", desc: "Group Sessions" },
-              { title: "Equestrian", desc: "Horse & Rider" },
-              { title: "Retreats", desc: "Day Escapes" },
-              { title: "Sports Therapy", desc: "Recovery" },
-              { title: "Community", desc: "Our Students" }
-            ].map((item, index) => (
+              {
+                image: "/client-content/1-2-1- Studio Pilates.webp",
+                caption: "Beautiful studio session today! 💪✨ #pilates #studio #personaltraining",
+                likes: "24",
+                time: "2h"
+              },
+              {
+                image: "/client-content/Equestrian Pilates Sessions .webp", 
+                caption: "Horse and rider harmony through Pilates 🐎 #equestrianpilates #horseback",
+                likes: "31",
+                time: "1d"
+              },
+              {
+                image: "/client-content/Mat Pilates Courses.webp",
+                caption: "Mat class energy is unmatched! 🧘‍♀️ #matpilates #groupfitness #pilateslife",
+                likes: "18",
+                time: "3d"
+              },
+              {
+                image: "/client-content/Center Parcs Woburn Day Retreats.webp",
+                caption: "Center Parcs retreat - pure bliss! 🌿 #retreat #centerparcs #wellness",
+                likes: "42",
+                time: "5d"
+              },
+              {
+                image: "/client-content/erin 2.webp",
+                caption: "Meet your instructor Erin! Passionate about movement ❤️ #instructor #pilates",
+                likes: "28",
+                time: "1w"
+              },
+              {
+                image: "/client-content/studio.webp",
+                caption: "Our beautiful studio space in Shefford 🏡 #studio #pilatesstudio #shefford",
+                likes: "35",
+                time: "1w"
+              }
+            ].map((post, index) => (
               <div 
                 key={index}
-                className="aspect-square bg-gradient-to-br from-pink-100 via-purple-50 to-yellow-50 rounded-lg flex flex-col items-center justify-center group hover:scale-105 transition-all cursor-pointer border-2 border-transparent hover:border-pilates-rose/30"
+                className="bg-white rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-all cursor-pointer"
                 onClick={() => window.open('https://www.instagram.com/freereinpilates', '_blank')}
               >
-                <Instagram className="w-8 h-8 text-pilates-rose mb-2 group-hover:scale-110 transition-transform" />
-                <h4 className="text-sm font-semibold text-pilates-dark text-center">
-                  {item.title}
-                </h4>
-                <p className="text-xs text-pilates-brown text-center">
-                  {item.desc}
-                </p>
+                {/* Instagram Post Header */}
+                <div className="flex items-center gap-3 p-4">
+                  <div className="w-8 h-8 bg-gradient-to-br from-pink-500 to-purple-600 rounded-full flex items-center justify-center">
+                    <span className="text-white text-sm font-bold">FR</span>
+                  </div>
+                  <div className="flex-1">
+                    <p className="font-semibold text-sm">freereinpilates</p>
+                    <p className="text-xs text-gray-500">{post.time} ago</p>
+                  </div>
+                  <Instagram className="w-5 h-5 text-gray-400" />
+                </div>
+                
+                {/* Post Image */}
+                <div className="aspect-square overflow-hidden">
+                  <img 
+                    src={post.image} 
+                    alt="Instagram post"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                
+                {/* Post Footer */}
+                <div className="p-4">
+                  <div className="flex items-center gap-4 mb-2">
+                    <div className="flex items-center gap-1">
+                      <span className="text-red-500">❤️</span>
+                      <span className="text-sm text-gray-600">{post.likes}</span>
+                    </div>
+                    <span className="text-gray-400">💬</span>
+                    <span className="text-gray-400">📤</span>
+                  </div>
+                  <p className="text-sm text-gray-700 leading-relaxed">
+                    <span className="font-semibold">freereinpilates</span> {post.caption}
+                  </p>
+                </div>
               </div>
             ))}
-          </div>
-          
-          <div className="text-center mt-8">
-            <p className="text-pilates-brown mb-4">
-              Click any image above to see real posts from our Instagram
-            </p>
           </div>
 
           <div className="text-center mt-6">
