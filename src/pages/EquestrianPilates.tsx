@@ -47,7 +47,7 @@ const EquestrianPilates = () => {
           style={{
             backgroundImage: `url('/client-content/Equestrian Pilates Sessions .webp')`,
             backgroundSize: 'cover',
-            backgroundPosition: 'center',
+            backgroundPosition: 'centre',
             filter: 'brightness(0.6)'
           }}
         />

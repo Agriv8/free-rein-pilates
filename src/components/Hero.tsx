@@ -10,7 +10,7 @@ const Hero = () => {
         style={{
           backgroundImage: `url('/client-content/home page banner.webp')`,
           backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundPosition: 'centre',
           filter: 'brightness(0.7)'
         }}
       />
@@ -40,7 +40,7 @@ const Hero = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => document.getElementById('about')?.scrollIntoView({ behaviour: 'smooth' })}
               className="px-8 py-4 bg-white text-pilates-dark rounded-full font-medium hover:bg-pilates-sand transition-all shadow-lg"
             >
               Explore Our Services
@@ -48,7 +48,7 @@ const Hero = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behaviour: 'smooth' })}
               className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-full font-medium hover:bg-white hover:text-pilates-dark transition-all"
             >
               Book Your First Class
@@ -64,7 +64,7 @@ const Hero = () => {
         className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 cursor-pointer"
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
-        onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+        onClick={() => document.getElementById('about')?.scrollIntoView({ behaviour: 'smooth' })}
       >
         <ChevronDown className="text-white/70 w-8 h-8 hover:text-white transition-colors" />
       </motion.div>

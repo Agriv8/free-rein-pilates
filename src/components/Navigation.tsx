@@ -40,11 +40,11 @@ const Navigation = () => {
         navigate('/')
         setTimeout(() => {
           const element = document.querySelector(href)
-          element?.scrollIntoView({ behavior: 'smooth' })
+          element?.scrollIntoView({ behaviour: 'smooth' })
         }, 100)
       } else {
         const element = document.querySelector(href)
-        element?.scrollIntoView({ behavior: 'smooth' })
+        element?.scrollIntoView({ behaviour: 'smooth' })
       }
     } else {
       navigate(href)

@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-next-app:*)", "Bash(mkdir:*)", "Bash(rm:*)", 
+      "Bash(npm install:*)", "Bash(npm run:*)", "Bash(npx supabase:*)",
+      "Bash(gh:*)", "Bash(git:*)", "Bash(netlify:*)", "Bash(node:*)",
+      "Bash(cat:*)", "Bash(ls:*)", "Bash(find:*)", "Bash(touch:*)", "Bash(cp:*)",
+      "WebFetch(domain:*.netlify.app)", "WebFetch(domain:supabase.co)"
+    ],
+    "deny": []
+  },
+  "enableAllProjectMcpServers": true,
+  "mcpServers": {
+    "demo-styles": {
+      "command": "node",
+      "args": ["/Users/agriv8r/Documents/python/Master Claude/projects/demo-styles/mcp-server/index.js"]
+    },
+    "pexels-image-provider": {
+      "command": "node", 
+      "args": ["/Users/agriv8r/Documents/python/Master Claude/projects/demo-styles/mcp-servers/pexels-provider.js"]
+    },
+    "style-themes-mcp": {
+      "command": "node",
+      "args": ["/Users/agriv8r/Documents/python/Master Claude/projects/demo-styles/mcp-servers/style-themes.js"]
+    },
+    "supabase-helper": {
+      "command": "node",
+      "args": ["/Users/agriv8r/Documents/python/Master Claude/supabase-implementation/mcp-helper.js"]
+    }
+  }
+}

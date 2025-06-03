@@ -41,7 +41,7 @@ const StudioPilates = () => {
           style={{
             backgroundImage: `url('/client-content/1-2-1- Studio Pilates.webp')`,
             backgroundSize: 'cover',
-            backgroundPosition: 'center',
+            backgroundPosition: 'centre',
             filter: 'brightness(0.6)'
           }}
         />

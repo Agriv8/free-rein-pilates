@@ -24,7 +24,7 @@ const MatPilates = () => {
           style={{
             backgroundImage: `url('/client-content/Mat Pilates Courses.webp')`,
             backgroundSize: 'cover',
-            backgroundPosition: 'center',
+            backgroundPosition: 'centre',
             filter: 'brightness(0.6)'
           }}
         />

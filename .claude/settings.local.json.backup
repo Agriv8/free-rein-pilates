@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh repo view:*)",
+      "Bash(netlify:*)",
+      "Bash(npm run build:*)",
+      "Bash(rm:*)",
+      "Bash(npm install)",
+      "Bash(node:*)",
+      "Bash(git remote set-url:*)",
+      "Bash(git push:*)",
+      "Bash(python3:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "WebFetch(domain:free-rein-pilates.netlify.app)",
+      "Bash(curl:*)",
+      "Bash(npm run dev:*)",
+      "Bash(gh repo delete:*)",
+      "Bash(gh auth refresh:*)",
+      "Bash(git remote remove:*)",
+      "Bash(gh repo create:*)",
+      "Bash(mv:*)",
+      "Bash(zip:*)",
+      "Bash(ls:*)",
+      "Bash(npm install:*)",
+      "Bash(mkdir:*)",
+      "Bash(chmod:*)",
+      "Bash(python:*)"
+    ],
+    "deny": []
+  }
+}

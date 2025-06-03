@@ -49,7 +49,7 @@ const SportsTherapy = () => {
           style={{
             backgroundImage: `url('/client-content/ Sports Therapy Sessions .webp')`,
             backgroundSize: 'cover',
-            backgroundPosition: 'center',
+            backgroundPosition: 'centre',
             filter: 'brightness(0.6)'
           }}
         />

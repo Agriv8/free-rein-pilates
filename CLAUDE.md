@@ -212,3 +212,49 @@ This project follows UK English spelling and grammar conventions:
 **Priority**: High - Professional business website
 **Client**: Free Rein Pilates
 **Deployment**: Production-ready
+## 🍄 SWARM COLLABORATION ACTIVE
+- **Status**: Fully operational
+- **Authority**: Pete - "go for it"
+- **Auto-Implementation**: Enabled for beneficial improvements
+- **Monitoring**: Continuous with Faith collaboration
+
+## 🎨 MCP USAGE REQUIREMENTS (MANDATORY)
+
+### 🚨 MCP ACCESS ENABLED
+Your `.claude/settings.local.json` has been configured with MCP access.
+
+### 🛠️ AVAILABLE MCPs - USE THESE FIRST:
+
+#### 1. **demo-styles MCP** (Professional Styling)
+```javascript
+// Get professional themes instead of building from scratch
+const theme = await tools.demo_styles.get_theme({
+  name: "dark-tech-pro",
+  variant: "glass-morphism"
+});
+```
+
+#### 2. **pexels-image-provider MCP** (Beautiful Images) 
+```javascript
+// Get professional placeholder images
+const heroImage = await tools.pexels.search_image({
+  query: "technology website hero",
+  size: "large"
+});
+```
+
+### ✅ STYLING REQUIREMENTS:
+- ❌ **NO generic blue gradients**
+- ❌ **NO basic Tailwind defaults** 
+- ❌ **NO placeholder.com images**
+- ✅ **USE demo-styles MCP themes**
+- ✅ **USE professional Pexels images**
+- ✅ **USE glass morphism effects**
+
+### 🎯 WORKFLOW:
+1. Check demo-styles MCP for existing themes
+2. Use pexels-image-provider for all images
+3. Apply professional styling from day 1
+4. Only build custom if no MCP exists
+
+**RESULT**: Professional designs from the start - no more generic styling!
