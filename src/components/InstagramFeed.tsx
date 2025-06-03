@@ -34,16 +34,37 @@ const InstagramFeed = () => {
             </a>
           </div>
 
-          {/* Instagram Feed Embed */}
-          <div 
-            className="flex justify-center"
-            dangerouslySetInnerHTML={{
-              __html: `
-                <!-- SnapWidget -->
-                <iframe src="https://snapwidget.com/embed/1094374" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:100%; max-width:600px; height:600px"></iframe>
-              `
-            }}
-          />
+          {/* Instagram Grid Preview */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-2xl mx-auto">
+            {[
+              { title: "Studio Sessions", desc: "1-2-1 Pilates" },
+              { title: "Mat Classes", desc: "Group Sessions" },
+              { title: "Equestrian", desc: "Horse & Rider" },
+              { title: "Retreats", desc: "Day Escapes" },
+              { title: "Sports Therapy", desc: "Recovery" },
+              { title: "Community", desc: "Our Students" }
+            ].map((item, index) => (
+              <div 
+                key={index}
+                className="aspect-square bg-gradient-to-br from-pink-100 via-purple-50 to-yellow-50 rounded-lg flex flex-col items-center justify-center group hover:scale-105 transition-all cursor-pointer border-2 border-transparent hover:border-pilates-rose/30"
+                onClick={() => window.open('https://www.instagram.com/freereinpilates', '_blank')}
+              >
+                <Instagram className="w-8 h-8 text-pilates-rose mb-2 group-hover:scale-110 transition-transform" />
+                <h4 className="text-sm font-semibold text-pilates-dark text-center">
+                  {item.title}
+                </h4>
+                <p className="text-xs text-pilates-brown text-center">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+          
+          <div className="text-center mt-8">
+            <p className="text-pilates-brown mb-4">
+              Click any image above to see real posts from our Instagram
+            </p>
+          </div>
 
           <div className="text-center mt-6">
             <p className="text-sm text-pilates-brown">
