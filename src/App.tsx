@@ -3,6 +3,7 @@ import Hero from './components/Hero'
 import About from './components/About'
 import Retreats from './components/Retreats'
 import Testimonials from './components/Testimonials'
+import InstagramFeed from './components/InstagramFeed'
 import Footer from './components/Footer'
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <About />
       <Retreats />
       <Testimonials />
+      <InstagramFeed />
       <Footer />
     </div>
   )
