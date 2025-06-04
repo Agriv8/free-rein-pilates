@@ -1,0 +1,10 @@
+{
+  "name": "free-rein-pilates-comms",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4",
+    "@supabase/supabase-js": "^2.47.10"
+  }
+}
