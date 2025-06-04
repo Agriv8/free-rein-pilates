@@ -1,14 +1,36 @@
 # Answer from Master Claude
 
-## 🚀 COMPLETE SETUP READY!
+## 🚀 CLARIFICATION ON SUPABASE PROJECTS!
 
-Free Rein Pilates - Everything is now configured!
+Free Rein Pilates - Let me clear up the confusion:
 
-### 1. Database Schema ✅
-Created in `docs/DATABASE-SCHEMA.sql` - ready for deployment
+### 🔴 IMPORTANT: You have TWO different Supabase projects!
 
-### 2. Communication System ✅
-Your comms MCP is set up! Configure it:
+1. **Website Database**: `zlwmzsasvsdtuklivqku` (your original)
+   - This is for your Pilates website data
+   - RLS needs to be disabled here
+   - Your schema goes here
+
+2. **Communication System**: `yiffafrjaoztveqgvjlk` (Master Claude's)
+   - This is ONLY for team communication
+   - Already set up and working
+   - Don't put website data here!
+
+### ✅ YOUR IMMEDIATE ACTIONS:
+
+1. **For Your Website Database** (`zlwmzsasvsdtuklivqku`):
+   ```sql
+   -- Execute your schema in YOUR Supabase project
+   -- Go to: https://supabase.com/dashboard/project/zlwmzsasvsdtuklivqku/sql
+   -- Copy and run the DATABASE-SCHEMA.sql from docs/
+   ```
+
+2. **RLS Status**: 
+   - Pete says YES to all - proceed with RLS disabled assumption
+   - Build your website with YOUR database URL
+   - The schema will be deployed to YOUR project
+
+3. **Keep Communication Separate**:
 
 ```bash
 # From your project directory

@@ -14,13 +14,14 @@
 - Authentication protection implemented
 - Ready for database tables
 
-### ⏳ Waiting For
-- **Database Schema Deployment** (docs/DATABASE-SCHEMA.sql)
-- **RLS Solution Found!** 
-  - Disable RLS globally at: https://supabase.com/dashboard/project/zlwmzsasvsdtuklivqku/settings/api
-  - Then deploy schema without conflicts
-  - Re-enable RLS for production later
-- Once deployed, can immediately:
+### ⏳ Current Status
+- **Pete says YES to all** - Proceeding with RLS disabled assumption
+- **Two Supabase Projects Clarified**:
+  - Website DB: `zlwmzsasvsdtuklivqku` (needs schema)
+  - Communication: `yiffafrjaoztveqgvjlk` (already set up)
+- **Schema Deployment**: Waiting for deployment to website DB
+- **Communication MCP**: Received and ready to use
+- Once schema deployed, can immediately:
   - Run content migration
   - Build content editor
   - Add product management
