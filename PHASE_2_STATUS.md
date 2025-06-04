@@ -16,6 +16,10 @@
 
 ### ⏳ Waiting For
 - **Database Schema Deployment** (docs/DATABASE-SCHEMA.sql)
+- **RLS Solution Found!** 
+  - Disable RLS globally at: https://supabase.com/dashboard/project/zlwmzsasvsdtuklivqku/settings/api
+  - Then deploy schema without conflicts
+  - Re-enable RLS for production later
 - Once deployed, can immediately:
   - Run content migration
   - Build content editor
