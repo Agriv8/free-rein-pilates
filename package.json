@@ -10,13 +10,7 @@
     "preview": "vite preview",
     "test": "vitest",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "setup-supabase": "node setup-supabase.js",
-    "migrate-content": "vite-node src/scripts/migrate-content.ts",
-    "migrate-large-files": "node ../storage-automation-toolkit/scripts/migrate-from-git.js --repo . --bucket project-assets",
-    "create-storage-buckets": "node ../storage-automation-toolkit/scripts/create-bucket.js --client",
-    "monitor-storage": "node ../storage-automation-toolkit/scripts/monitor-usage.js",
-    "type-check": "tsc --noEmit",
-    "fix-mcp": "node run-mcp-bug-fix.js"
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",

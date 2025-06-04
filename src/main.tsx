@@ -9,14 +9,11 @@ import SportsTherapy from './pages/SportsTherapy'
 import BookOnline from './pages/BookOnline'
 import ContactPage from './pages/ContactPage'
 import Shop from './pages/Shop'
-import Test from './pages/Test'
 import AdminLogin from './pages/admin/AdminLogin'
 import AdminDashboard from './pages/admin/AdminDashboard'
 import { CartProvider } from './context/CartContext'
 import { AuthProvider } from './contexts/AuthContext'
 import ErrorBoundary from './components/ErrorBoundary'
-import RouteLogger from './components/RouteLogger'
-import './utils/logger'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -25,7 +22,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <BrowserRouter>
         <AuthProvider>
           <CartProvider>
-            <RouteLogger />
             <Routes>
               <Route path="/" element={<App />} />
               <Route path="/mat-pilates" element={<MatPilates />} />
@@ -35,7 +31,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
               <Route path="/book-online" element={<BookOnline />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/shop" element={<Shop />} />
-              <Route path="/test" element={<Test />} />
               <Route path="/admin/login" element={<AdminLogin />} />
               <Route path="/admin" element={<AdminDashboard />} />
             </Routes>
