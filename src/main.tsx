@@ -8,6 +8,8 @@ import EquestrianPilates from './pages/EquestrianPilates'
 import SportsTherapy from './pages/SportsTherapy'
 import BookOnline from './pages/BookOnline'
 import ContactPage from './pages/ContactPage'
+import AdminLogin from './pages/admin/AdminLogin'
+import AdminDashboard from './pages/admin/AdminDashboard'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -21,6 +23,8 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <Route path="/sports-therapy" element={<SportsTherapy />} />
         <Route path="/book-online" element={<BookOnline />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/admin" element={<AdminDashboard />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
