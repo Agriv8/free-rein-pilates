@@ -103,7 +103,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-pilates-dark mb-1">Phone</h4>
-                    <p className="text-pilates-brown">01234 567890</p>
+                    <p className="text-pilates-brown">0333 050 4262</p>
                   </div>
                 </div>
                 
@@ -123,7 +123,12 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-pilates-dark mb-1">Location</h4>
-                    <p className="text-pilates-brown">Shefford, Bedfordshire</p>
+                    <p className="text-pilates-brown">
+                      Unit 2C, Old Hall Farmyard<br />
+                      Priory Lane, Little Wymondley<br />
+                      Hitchin, Herts<br />
+                      SG4 7BL
+                    </p>
                     <p className="text-sm text-pilates-brown mt-1">
                       Studio sessions by appointment only
                     </p>

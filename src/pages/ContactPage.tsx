@@ -112,7 +112,7 @@ const ContactPage = () => {
                     </div>
                     <div>
                       <h4 className="font-semibold text-pilates-dark mb-1">Phone</h4>
-                      <p className="text-pilates-brown">01234 567890</p>
+                      <p className="text-pilates-brown">0333 050 4262</p>
                     </div>
                   </div>
                   
@@ -132,7 +132,12 @@ const ContactPage = () => {
                     </div>
                     <div>
                       <h4 className="font-semibold text-pilates-dark mb-1">Location</h4>
-                      <p className="text-pilates-brown">Shefford, Bedfordshire</p>
+                      <p className="text-pilates-brown">
+                        Unit 2C, Old Hall Farmyard<br />
+                        Priory Lane, Little Wymondley<br />
+                        Hitchin, Herts<br />
+                        SG4 7BL
+                      </p>
                       <p className="text-sm text-pilates-brown mt-1">
                         Studio sessions by appointment only
                       </p>
@@ -337,9 +342,10 @@ const ContactPage = () => {
               <div className="text-left">
                 <h4 className="font-semibold text-pilates-dark mb-2">Studio Address</h4>
                 <p className="text-pilates-brown">
-                  Shefford<br />
-                  Bedfordshire<br />
-                  SG17
+                  Unit 2C, Old Hall Farmyard<br />
+                  Priory Lane, Little Wymondley<br />
+                  Hitchin, Herts<br />
+                  SG4 7BL
                 </p>
                 <p className="text-sm text-pilates-brown mt-2">
                   * Full address provided upon booking
@@ -349,8 +355,8 @@ const ContactPage = () => {
                 <h4 className="font-semibold text-pilates-dark mb-2">Mat Classes Location</h4>
                 <p className="text-pilates-brown">
                   Community Centre<br />
-                  Shefford<br />
-                  Bedfordshire
+                  Hitchin<br />
+                  Hertfordshire
                 </p>
                 <p className="text-sm text-pilates-brown mt-2">
                   * Exact venue details sent with booking confirmation

@@ -118,8 +118,8 @@ export const STATIC_CONTENT = {
   },
   contact: {
     email: "info@freereinpilates.com",
-    phone: "+44 (0) 1234 567890",
-    address: "Studio Location, Bedfordshire",
+    phone: "0333 050 4262",
+    address: "Unit 2C, Old Hall Farmyard, Priory Lane, Little Wymondley, Hitchin, Herts, SG4 7BL",
     hours: {
       monday: "9:00 AM - 8:00 PM",
       tuesday: "9:00 AM - 8:00 PM",

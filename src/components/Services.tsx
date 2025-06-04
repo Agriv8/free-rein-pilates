@@ -8,7 +8,7 @@ const Services = () => {
     {
       icon: Users,
       title: 'Mat Pilates Courses',
-      description: 'Community classes in Shefford for all ability levels. Improve flexibility, posture, and strength in a welcoming environment.',
+      description: 'Community classes in Hitchin for all ability levels. Improve flexibility, posture, and strength in a welcoming environment.',
       image: '/client-content/Mat Pilates Courses.webp',
       link: '/mat-pilates'
     },

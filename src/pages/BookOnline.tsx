@@ -15,7 +15,7 @@ const BookOnline = () => {
       type: 'GROUP CLASS',
       duration: '6 week blocks',
       price: 'Contact for pricing',
-      location: 'Shefford (SG17)',
+      location: 'Hitchin (SG4)',
       description: 'Mixed ability classes, beginners welcome',
       highlight: true,
       productId: '4' // Maps to Mat Pilates Course (6 weeks) in shop
@@ -208,9 +208,9 @@ const BookOnline = () => {
                   Get in Touch
                 </h4>
                 <div className="space-y-4">
-                  <a href="tel:01234567890" className="flex items-center gap-3 text-pilates-brown hover:text-pilates-rose transition-colors">
+                  <a href="tel:03330504262" className="flex items-center gap-3 text-pilates-brown hover:text-pilates-rose transition-colors">
                     <Phone className="w-5 h-5 text-pilates-rose" />
-                    <span>01234 567890</span>
+                    <span>0333 050 4262</span>
                   </a>
                   <a href="mailto:info@freereinpilates.com" className="flex items-center gap-3 text-pilates-brown hover:text-pilates-rose transition-colors">
                     <Mail className="w-5 h-5 text-pilates-rose" />
@@ -219,7 +219,9 @@ const BookOnline = () => {
                   <div className="flex items-start gap-3 text-pilates-brown">
                     <MapPin className="w-5 h-5 text-pilates-rose mt-0.5" />
                     <div>
-                      <p>Shefford, Bedfordshire</p>
+                      <p>Unit 2C, Old Hall Farmyard</p>
+                      <p>Priory Lane, Little Wymondley</p>
+                      <p>Hitchin, Herts, SG4 7BL</p>
                       <p className="text-sm">Studio sessions by appointment only</p>
                     </div>
                   </div>
@@ -256,7 +258,7 @@ const BookOnline = () => {
                 <strong>Erin Pitts</strong> - Certified Pilates Instructor & Sports Therapist
               </p>
               <motion.a
-                href="tel:01234567890"
+                href="tel:03330504262"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="inline-flex items-center px-8 py-4 bg-pilates-rose text-white rounded-full hover:bg-pilates-brown transition-all font-medium text-lg"

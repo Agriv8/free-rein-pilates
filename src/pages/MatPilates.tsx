@@ -40,7 +40,7 @@ const MatPilates = () => {
               Mat Pilates Courses
             </h1>
             <p className="text-xl text-white/90 mb-8">
-              Community classes for all ability levels in Shefford, Bedfordshire
+              Community classes for all ability levels in Hitchin, Hertfordshire
             </p>
           </motion.div>
         </div>
@@ -66,14 +66,14 @@ const MatPilates = () => {
                 correct posture, alignment of the spine and core strength.
               </p>
               <p className="text-lg text-pilates-brown mb-6 leading-relaxed">
-                Our Community Mat Pilates courses run throughout the year based in Shefford, 
-                Bedfordshire. All courses cater to a mixed range of abilities, whether you 
+                Our Community Mat Pilates courses run throughout the year based in Hitchin, 
+                Hertfordshire. All courses cater to a mixed range of abilities, whether you 
                 have been practicing Pilates for many years or you are just starting out, 
                 our courses are differentiated to allow progress for all.
               </p>
               <div className="flex items-center gap-3 text-pilates-brown">
                 <MapPin className="w-5 h-5 text-pilates-rose" />
-                <span className="font-medium">Location: Shefford (SG17)</span>
+                <span className="font-medium">Location: Hitchin (SG4)</span>
               </div>
             </motion.div>
 
