@@ -34,11 +34,9 @@
 6. **COMMERCIAL GRADE ONLY** - Enterprise standards for everything: auth, security, architecture, code quality
 7. **CLI FIRST** - Use official CLIs for all services: `supabase` CLI, `gh` CLI, `netlify` CLI, `az` CLI
 
-## 🤖 INTER-CLAUDE COMMUNICATION
+## 🤖 PROJECT IDENTITY
 
 **Your Project ID**: `free-rein-pilates-001`
-
-- ✅ Use mcs_bridge_messages for messages
 
 ## 🏢 CLI FIRST OPERATIONS
 
