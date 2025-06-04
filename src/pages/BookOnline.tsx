@@ -1,44 +1,61 @@
 import { motion } from 'framer-motion'
-import { Clock, MapPin, Phone, Mail, CheckCircle } from 'lucide-react'
+import { Clock, MapPin, Phone, Mail, CheckCircle, ShoppingCart } from 'lucide-react'
 import Navigation from '../components/Navigation'
 import Footer from '../components/Footer'
+import { useCart } from '../context/CartContext'
+import { useNavigate } from 'react-router-dom'
 
 const BookOnline = () => {
+  const { addToCart } = useCart()
+  const navigate = useNavigate()
+  
   const services = [
     {
       title: 'Mat Pilates Courses',
+      type: 'GROUP CLASS',
       duration: '6 week blocks',
       price: 'Contact for pricing',
       location: 'Shefford (SG17)',
-      description: 'Mixed ability classes, beginners welcome'
+      description: 'Mixed ability classes, beginners welcome',
+      highlight: true,
+      productId: '4' // Maps to Mat Pilates Course (6 weeks) in shop
     },
     {
       title: '1-2-1 Studio Pilates',
+      type: 'PRIVATE SESSION',
       duration: '60 minutes',
       price: 'Contact for pricing',
       location: 'Home Studio',
-      description: 'Personal reformer sessions tailored to your goals'
+      description: 'Personal reformer sessions tailored to your goals',
+      highlight: true,
+      productId: '3' // Maps to 1-2-1 Studio Session in shop
     },
     {
       title: 'Equestrian Pilates',
+      type: 'SPECIALIST',
       duration: 'Flexible',
       price: 'Contact for pricing',
       location: 'Various locations',
-      description: 'Individual training plans for riders'
+      description: 'Individual training plans for riders',
+      productId: '6' // Maps to Equestrian Pilates Session in shop
     },
     {
       title: 'Sports Therapy',
+      type: 'TREATMENT',
       duration: 'Varies',
       price: 'Contact for pricing',
       location: 'Home Studio',
-      description: 'Initial consultation required'
+      description: 'Initial consultation required',
+      productId: '5' // Maps to Sports Therapy Session in shop
     },
     {
       title: 'Wrest Park Day Retreat',
+      type: 'SPECIAL EVENT',
       duration: '4 hours',
       price: '£115 per person',
       location: 'Wrest Park, Silsoe',
-      description: 'Luxury morning retreat with goodie bag'
+      description: 'Luxury morning retreat with goodie bag',
+      productId: null // No matching product in shop yet
     }
   ]
 
@@ -80,18 +97,15 @@ const BookOnline = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center"
           >
-            <h2 className="text-4xl font-display text-pilates-dark mb-4">
-              Our Services & Booking
-            </h2>
             <p className="text-lg text-pilates-brown max-w-3xl mx-auto">
               Choose from our range of services below. Contact us directly to discuss 
               your needs and book your sessions.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
             {services.map((service, index) => (
               <motion.div
                 key={service.title}
@@ -99,8 +113,13 @@ const BookOnline = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow"
+                className={`bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow ${
+                  service.highlight ? 'ring-2 ring-pilates-rose' : ''
+                }`}
               >
+                <span className="inline-block px-3 py-1 bg-pilates-rose/10 text-pilates-rose text-xs font-semibold rounded-full mb-3">
+                  {service.type}
+                </span>
                 <h3 className="text-2xl font-display text-pilates-dark mb-4">
                   {service.title}
                 </h3>
@@ -125,10 +144,18 @@ const BookOnline = () => {
                 </p>
                 
                 <button
-                  onClick={() => document.getElementById('booking-contact')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="w-full px-4 py-2 bg-pilates-rose text-white rounded-full hover:bg-pilates-brown transition-colors font-medium"
+                  onClick={() => {
+                    if (service.productId) {
+                      addToCart(service.productId)
+                      navigate('/shop')
+                    } else {
+                      document.getElementById('booking-contact')?.scrollIntoView({ behavior: 'smooth' })
+                    }
+                  }}
+                  className="w-full px-4 py-2 bg-pilates-rose text-white rounded-full hover:bg-pilates-brown transition-colors font-medium flex items-center justify-center gap-2"
                 >
-                  Book Now
+                  <ShoppingCart className="w-4 h-4" />
+                  {service.productId ? 'Add to Cart' : 'Contact Us'}
                 </button>
               </motion.div>
             ))}

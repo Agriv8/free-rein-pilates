@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
-import { Menu, X, ChevronDown } from 'lucide-react'
+import { Menu, X, ChevronDown, ShoppingCart } from 'lucide-react'
 import { useNavigate, useLocation } from 'react-router-dom'
+import { useCart } from '../context/CartContext'
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -8,6 +9,10 @@ const Navigation = () => {
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false)
   const navigate = useNavigate()
   const location = useLocation()
+  const { getTotalItems } = useCart()
+  
+  // Check if we're on the home page (which has dark background)
+  const isHomePage = location.pathname === '/'
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,7 +36,7 @@ const Navigation = () => {
     },
     { href: '/book-online', label: 'BOOK ONLINE' },
     { href: '/contact', label: 'CONTACT' },
-    { href: '#shop', label: 'SHOP' },
+    { href: '/shop', label: 'SHOP' },
   ]
 
   const handleNavClick = (href: string) => {
@@ -54,7 +59,7 @@ const Navigation = () => {
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
+      !isHomePage || isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4 md:py-6">
@@ -64,7 +69,7 @@ const Navigation = () => {
               src="/client-content/Main Logo-White-RGB.webp" 
               alt="Free Rein Pilates" 
               className={`h-12 md:h-16 transition-all duration-300 ${
-                isScrolled ? 'brightness-0' : ''
+                !isHomePage || isScrolled ? 'brightness-0' : ''
               }`}
             />
           </div>
@@ -81,7 +86,7 @@ const Navigation = () => {
                   >
                     <button
                       className={`font-medium text-sm tracking-wide transition-colors flex items-center gap-1 ${
-                        isScrolled ? 'text-pilates-dark hover:text-pilates-rose' : 'text-white hover:text-pilates-beige'
+                        !isHomePage || isScrolled ? 'text-pilates-dark hover:text-pilates-rose' : 'text-white hover:text-pilates-beige'
                       }`}
                     >
                       {link.label}
@@ -115,7 +120,7 @@ const Navigation = () => {
                       handleNavClick(link.href)
                     }}
                     className={`font-medium text-sm tracking-wide transition-colors ${
-                      isScrolled ? 'text-pilates-dark hover:text-pilates-rose' : 'text-white hover:text-pilates-beige'
+                      !isHomePage || isScrolled ? 'text-pilates-dark hover:text-pilates-rose' : 'text-white hover:text-pilates-beige'
                     }`}
                   >
                     {link.label}
@@ -129,13 +134,28 @@ const Navigation = () => {
             >
               Book a Class
             </button>
+            <button
+              onClick={() => handleNavClick('/shop')}
+              className={`relative p-2 rounded-full transition-all ${
+                !isHomePage || isScrolled 
+                  ? 'text-pilates-dark hover:text-pilates-rose' 
+                  : 'text-white hover:text-pilates-beige'
+              }`}
+            >
+              <ShoppingCart size={24} />
+              {getTotalItems() > 0 && (
+                <span className="absolute -top-1 -right-1 bg-pilates-rose text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
+                  {getTotalItems()}
+                </span>
+              )}
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className={`md:hidden p-2 rounded-lg ${
-              isScrolled ? 'text-pilates-dark' : 'text-white'
+              !isHomePage || isScrolled ? 'text-pilates-dark' : 'text-white'
             }`}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
