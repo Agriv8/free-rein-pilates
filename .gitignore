@@ -113,3 +113,18 @@ dist-ssr
 .env.production
 # Local Netlify folder
 .netlify
+
+# Supabase Storage System
+*.storage
+.storage-config.json
+storage-migration-report.json
+
+# Large files (use Supabase Storage instead)
+*.zip
+*.tar.gz
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.iso
+*.dmg

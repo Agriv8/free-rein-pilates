@@ -1,64 +1,51 @@
-# 🚨 URGENT: Free Rein Pilates Shop Database Setup
+# 🚨 URGENT: Free Rein Pilates Dedicated Database Required
 
-## New Dedicated Supabase Project Required
+## Current Status: ❌ NO DEDICATED DATABASE
 
-Free Rein Pilates is building a shop and needs their own dedicated database.
+Free Rein Pilates needs their **own Supabase project** for complete data separation from other clients.
 
-## Action Required:
-1. **Create new Supabase project**: `free-rein-pilates`
-2. **Set up e-commerce schema**:
-   - products table
-   - categories table  
-   - orders table
-   - customers table
-   - product_variants table
+## 🎯 **IMMEDIATE ACTION REQUIRED**
 
-## Schema SQL:
+### **Step 1: Create New Supabase Project**
+1. Go to https://supabase.com/dashboard
+2. Click "New Project"
+3. **Name**: `free-rein-pilates`
+4. **Organization**: WebSmartTeam (or client's organization)
+5. **Region**: London (UK)
+6. **Plan**: Pro (for production e-commerce)
+
+### **Step 2: Execute Schema**
+Once project is created, run this SQL in the new project:
 ```sql
--- Products table
-CREATE TABLE products (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  name TEXT NOT NULL,
-  description TEXT,
-  price DECIMAL(10,2) NOT NULL,
-  category_id UUID REFERENCES categories(id),
-  image_url TEXT,
-  is_active BOOLEAN DEFAULT true,
-  created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now())
-);
-
--- Categories table  
-CREATE TABLE categories (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  name TEXT NOT NULL,
-  slug TEXT UNIQUE NOT NULL,
-  description TEXT,
-  created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now())
-);
-
--- Orders table
-CREATE TABLE orders (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  customer_email TEXT NOT NULL,
-  total_amount DECIMAL(10,2) NOT NULL,
-  status TEXT DEFAULT 'pending',
-  created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now())
-);
-
--- Enable RLS
-ALTER TABLE products ENABLE ROW LEVEL SECURITY;
-ALTER TABLE categories ENABLE ROW LEVEL SECURITY;
-ALTER TABLE orders ENABLE ROW LEVEL SECURITY;
-
--- Public read policies
-CREATE POLICY "Public read products" ON products FOR SELECT USING (is_active = true);
-CREATE POLICY "Public read categories" ON categories FOR SELECT USING (true);
+-- Complete schema is ready in CREATE_FREE_REIN_PILATES_SUPABASE_PROJECT.sql
+-- Includes: products, orders, customers, class bookings, payment system
 ```
 
-## Expected Project Details:
-- **Project Name**: free-rein-pilates
-- **Database**: Dedicated for pilates shop
-- **Storage Bucket**: free-rein-pilates-assets
-- **Environment**: Production ready
+### **Step 3: Update Environment Variables**
+Update Free Rein Pilates project with new credentials:
+```env
+VITE_SUPABASE_URL=https://[new-project-id].supabase.co
+VITE_SUPABASE_ANON_KEY=[new-anon-key]
+```
 
-**PRIORITY**: HIGH - Shop development waiting for database
+## 🏪 **What the Database Includes**
+
+✅ **E-commerce Tables**: Products, categories, orders, customers  
+✅ **Pilates Specific**: Class bookings, session management  
+✅ **Marketing**: Newsletter, contact forms  
+✅ **Security**: Row Level Security policies  
+✅ **Sample Data**: Ready-to-use test products  
+✅ **Storage Bucket**: For product images  
+
+## 🚨 **Why Dedicated Project?**
+
+- **Client Data Isolation**: Complete separation from other clients
+- **Independent Scaling**: Own resource limits  
+- **Custom Configuration**: Pilates-specific settings
+- **Billing Separation**: Clear cost allocation
+- **Security Compliance**: GDPR-ready isolation
+
+## 📋 **Current Blocker**
+Free Rein Pilates shop development is **WAITING** for this database to be created.
+
+**ETA**: Once Supabase project is created, schema can be deployed in 2 minutes.
