@@ -5,8 +5,8 @@ import { createClient } from '@supabase/supabase-js'
 import Navigation from '../components/Navigation'
 import Footer from '../components/Footer'
 
-// Initialize Supabase client (disabled for now - no environment variables set)
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || 'https://placeholder.supabase.co'
+// Initialize Supabase client
+const supabaseUrl = import.meta.env.VITE_SUPABASE_DATABASE_URL || import.meta.env.VITE_SUPABASE_URL || 'https://placeholder.supabase.co'
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || 'placeholder-key'
 const supabase = supabaseUrl === 'https://placeholder.supabase.co' ? null : createClient(supabaseUrl, supabaseAnonKey)
 

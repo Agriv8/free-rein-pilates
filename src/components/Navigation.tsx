@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Menu, X, ChevronDown, ShoppingCart } from 'lucide-react'
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useNavigate, useLocation, Link } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
 
 const Navigation = () => {
@@ -40,6 +40,7 @@ const Navigation = () => {
   ]
 
   const handleNavClick = (href: string) => {
+    console.log('Navigation clicked:', href)
     if (href.startsWith('#')) {
       if (location.pathname !== '/') {
         navigate('/')
@@ -134,13 +135,14 @@ const Navigation = () => {
             >
               Book a Class
             </button>
-            <button
-              onClick={() => handleNavClick('/shop')}
-              className={`relative p-2 rounded-full transition-all ${
+            <Link
+              to="/shop"
+              className={`relative p-2 rounded-full transition-all z-10 inline-block ${
                 !isHomePage || isScrolled 
-                  ? 'text-pilates-dark hover:text-pilates-rose' 
-                  : 'text-white hover:text-pilates-beige'
+                  ? 'text-pilates-dark hover:text-pilates-rose hover:bg-pilates-rose/10' 
+                  : 'text-white hover:text-pilates-beige hover:bg-white/10'
               }`}
+              aria-label="Shopping Cart"
             >
               <ShoppingCart size={24} />
               {getTotalItems() > 0 && (
@@ -148,7 +150,7 @@ const Navigation = () => {
                   {getTotalItems()}
                 </span>
               )}
-            </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -203,6 +205,18 @@ const Navigation = () => {
                   )}
                 </div>
               ))}
+              <button 
+                onClick={() => handleNavClick('/shop')}
+                className="w-full px-6 py-3 bg-pilates-brown text-white rounded-full hover:bg-pilates-dark transition-all text-sm font-medium flex items-center justify-center gap-2"
+              >
+                <ShoppingCart size={20} />
+                Shopping Cart
+                {getTotalItems() > 0 && (
+                  <span className="bg-pilates-rose text-white text-xs px-2 py-1 rounded-full">
+                    {getTotalItems()}
+                  </span>
+                )}
+              </button>
               <button 
                 onClick={() => handleNavClick('/book-online')}
                 className="w-full px-6 py-3 bg-pilates-rose text-white rounded-full hover:bg-pilates-brown transition-all text-sm font-medium"
