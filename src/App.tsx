@@ -1,4 +1,3 @@
-import { AuthProvider } from './contexts/AuthContext'
 import Navigation from './components/Navigation'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -9,17 +8,15 @@ import Footer from './components/Footer'
 
 function App() {
   return (
-    <AuthProvider>
-      <div className="min-h-screen bg-pilates-cream">
-        <Navigation />
-        <Hero />
-        <About />
-        <Retreats />
-        <Testimonials />
-        <InstagramFeed />
-        <Footer />
-      </div>
-    </AuthProvider>
+    <div className="min-h-screen bg-pilates-cream">
+      <Navigation />
+      <Hero />
+      <About />
+      <Retreats />
+      <Testimonials />
+      <InstagramFeed />
+      <Footer />
+    </div>
   )
 }
 
