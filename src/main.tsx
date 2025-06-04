@@ -12,25 +12,31 @@ import Shop from './pages/Shop'
 import AdminLogin from './pages/admin/AdminLogin'
 import AdminDashboard from './pages/admin/AdminDashboard'
 import { CartProvider } from './context/CartContext'
+import ErrorBoundary from './components/ErrorBoundary'
+import RouteLogger from './components/RouteLogger'
+import './utils/logger'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <CartProvider>
-        <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/mat-pilates" element={<MatPilates />} />
-        <Route path="/studio-pilates" element={<StudioPilates />} />
-        <Route path="/equestrian-pilates" element={<EquestrianPilates />} />
-        <Route path="/sports-therapy" element={<SportsTherapy />} />
-        <Route path="/book-online" element={<BookOnline />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/shop" element={<Shop />} />
-        <Route path="/admin/login" element={<AdminLogin />} />
-        <Route path="/admin" element={<AdminDashboard />} />
-      </Routes>
-      </CartProvider>
-    </BrowserRouter>
+    <ErrorBoundary>
+      <BrowserRouter>
+        <CartProvider>
+          <RouteLogger />
+          <Routes>
+            <Route path="/" element={<App />} />
+            <Route path="/mat-pilates" element={<MatPilates />} />
+            <Route path="/studio-pilates" element={<StudioPilates />} />
+            <Route path="/equestrian-pilates" element={<EquestrianPilates />} />
+            <Route path="/sports-therapy" element={<SportsTherapy />} />
+            <Route path="/book-online" element={<BookOnline />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/shop" element={<Shop />} />
+            <Route path="/admin/login" element={<AdminLogin />} />
+            <Route path="/admin" element={<AdminDashboard />} />
+          </Routes>
+        </CartProvider>
+      </BrowserRouter>
+    </ErrorBoundary>
   </React.StrictMode>,
 )

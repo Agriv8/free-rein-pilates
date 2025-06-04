@@ -30,8 +30,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [isAdmin, setIsAdmin] = useState(false)
 
   useEffect(() => {
+    if (!supabase) {
+      setLoading(false)
+      return
+    }
+
     // Get initial session
-    supabase.auth.getSession().then(({ data: { session } }) => {
+    supabase.auth.getSession().then((result: any) => {
+      const session = result.data?.session
       setSession(session)
       setUser(session?.user ?? null)
       checkAdminStatus(session?.user ?? null)
@@ -41,7 +47,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     // Listen for auth changes
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
+    } = supabase.auth.onAuthStateChange((_event: any, session: Session | null) => {
       setSession(session)
       setUser(session?.user ?? null)
       checkAdminStatus(session?.user ?? null)
@@ -68,6 +74,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }
 
   const signIn = async (email: string, password: string) => {
+    if (!supabase) {
+      return { error: { message: 'Authentication service not configured. Please try again later.' } }
+    }
     const { error } = await supabase.auth.signInWithPassword({
       email,
       password,
@@ -76,6 +85,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }
 
   const signUp = async (email: string, password: string, name: string) => {
+    if (!supabase) {
+      return { error: { message: 'Authentication service not configured. Please try again later.' } }
+    }
     const { error } = await supabase.auth.signUp({
       email,
       password,
@@ -89,11 +101,17 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }
 
   const signOut = async () => {
+    if (!supabase) {
+      return { error: { message: 'Authentication service not configured. Please try again later.' } }
+    }
     const { error } = await supabase.auth.signOut()
     return { error }
   }
 
   const resetPassword = async (email: string) => {
+    if (!supabase) {
+      return { error: { message: 'Authentication service not configured. Please try again later.' } }
+    }
     const { error } = await supabase.auth.resetPasswordForEmail(email)
     return { error }
   }

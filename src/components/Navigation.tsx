@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Menu, X, ChevronDown, ShoppingCart } from 'lucide-react'
 import { useNavigate, useLocation, Link } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
+import { logger } from '../utils/logger'
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -40,7 +41,9 @@ const Navigation = () => {
   ]
 
   const handleNavClick = (href: string) => {
-    console.log('Navigation clicked:', href)
+    logger.navigation(location.pathname, href)
+    logger.action('Navigation clicked', { from: location.pathname, to: href })
+    
     if (href.startsWith('#')) {
       if (location.pathname !== '/') {
         navigate('/')
