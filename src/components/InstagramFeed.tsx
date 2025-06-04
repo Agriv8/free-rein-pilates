@@ -1,9 +1,18 @@
 import { Instagram } from 'lucide-react'
 import { useEffect } from 'react'
 import { useInstagramPosts } from '../hooks/useContent'
+import DOMPurify from 'dompurify'
 
 const InstagramFeed = () => {
   const { posts } = useInstagramPosts()
+  
+  // Safe HTML sanitization helper
+  const sanitizeInstagramEmbed = (html: string) => {
+    return DOMPurify.sanitize(html, {
+      ALLOWED_TAGS: ['blockquote', 'div', 'a', 'p', 'svg', 'g', 'path'],
+      ALLOWED_ATTR: ['class', 'data-instgrm-captioned', 'data-instgrm-permalink', 'data-instgrm-version', 'style', 'href', 'target', 'width', 'height', 'viewBox', 'version', 'xmlns', 'stroke', 'stroke-width', 'fill', 'fill-rule', 'transform', 'd']
+    })
+  }
   useEffect(() => {
     // Load Instagram embed script
     const script = document.createElement('script')
@@ -40,7 +49,9 @@ const InstagramFeed = () => {
             posts.map((post) => (
               <div
                 key={post.id}
-                dangerouslySetInnerHTML={{ __html: post.embed_code }}
+                dangerouslySetInnerHTML={{ 
+                  __html: sanitizeInstagramEmbed(post.embed_code)
+                }}
               />
             ))
           ) : (

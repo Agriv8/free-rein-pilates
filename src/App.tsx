@@ -5,7 +5,7 @@ import About from './components/About'
 import Retreats from './components/Retreats'
 import Testimonials from './components/Testimonials'
 import Contact from './components/Contact'
-import InstagramFeed from './components/InstagramFeed'
+import InstagramFeedSecure from './components/InstagramFeedSecure'
 import Footer from './components/Footer'
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
       <Retreats />
       <Testimonials />
       <Contact />
-      <InstagramFeed />
+      <InstagramFeedSecure />
       <Footer />
     </div>
   )
