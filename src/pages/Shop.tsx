@@ -115,8 +115,8 @@ const Shop = () => {
   const categories = ['all', 'Equipment', 'Sessions', 'Courses', 'Therapy', 'Specialised', 'Retreats']
   
   const filteredProducts = selectedCategory === 'all' 
-    ? products 
-    : products.filter(p => p.category === selectedCategory)
+    ? products.filter(p => p.active) 
+    : products.filter(p => p.category === selectedCategory && p.active)
 
 
 
