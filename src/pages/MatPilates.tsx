@@ -2,8 +2,12 @@ import { motion } from 'framer-motion'
 import { Users, CheckCircle, Calendar, MapPin } from 'lucide-react'
 import Navigation from '../components/Navigation'
 import Footer from '../components/Footer'
+import { useNavigate } from 'react-router-dom'
+import { useCart } from '../context/CartContext'
 
 const MatPilates = () => {
+  const navigate = useNavigate()
+  const { addToCart } = useCart()
   const benefits = [
     "Improve flexibility and range of motion",
     "Strengthen core muscles",
@@ -172,7 +176,10 @@ const MatPilates = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="px-8 py-4 bg-pilates-rose text-white rounded-full hover:bg-pilates-brown transition-all font-medium text-lg"
-              onClick={() => window.location.href = '/#contact'}
+              onClick={() => {
+                addToCart('4') // Mat Pilates Course (6 weeks) product ID
+                navigate('/shop')
+              }}
             >
               Book Your Mat Spot Here!
             </motion.button>

@@ -2,8 +2,12 @@ import { motion } from 'framer-motion'
 import { Sparkles, Heart, Target, Activity } from 'lucide-react'
 import Navigation from '../components/Navigation'
 import Footer from '../components/Footer'
+import { useNavigate } from 'react-router-dom'
+import { useCart } from '../context/CartContext'
 
 const StudioPilates = () => {
+  const navigate = useNavigate()
+  const { addToCart } = useCart()
   const benefits = [
     {
       title: "Stronger core and better posture",
@@ -232,9 +236,12 @@ const StudioPilates = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="px-8 py-4 bg-pilates-rose text-white rounded-full hover:bg-pilates-brown transition-all font-medium text-lg"
-              onClick={() => window.location.href = '/#contact'}
+              onClick={() => {
+                addToCart('3') // 1-2-1 Studio Session product ID
+                navigate('/shop')
+              }}
             >
-              Contact Now
+              Book Studio Session
             </motion.button>
           </motion.div>
         </div>

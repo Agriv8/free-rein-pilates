@@ -1,7 +1,11 @@
 import { motion } from 'framer-motion'
 import { Calendar, Clock, MapPin, Gift } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
+import { useCart } from '../context/CartContext'
 
 const Retreats = () => {
+  const navigate = useNavigate()
+  const { addToCart } = useCart()
   const schedule = [
     { time: '9:00am', title: 'Arrival', desc: 'Tea, coffee & goodie bag' },
     { time: '9:15am', title: 'Core Restore', desc: 'Classical Mat Pilates workshop' },
@@ -77,6 +81,10 @@ const Retreats = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => {
+                addToCart('7') // Wrest Park Day Retreat product ID
+                navigate('/shop')
+              }}
               className="px-8 py-3 bg-pilates-rose text-white rounded-full hover:bg-pilates-brown transition-all font-medium"
             >
               Book Your Retreat

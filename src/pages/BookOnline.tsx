@@ -55,7 +55,7 @@ const BookOnline = () => {
       price: '£115 per person',
       location: 'Wrest Park, Silsoe',
       description: 'Luxury morning retreat with goodie bag',
-      productId: null // No matching product in shop yet
+      productId: '7' // Maps to Wrest Park Day Retreat in shop
     }
   ]
 

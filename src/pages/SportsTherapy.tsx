@@ -2,8 +2,12 @@ import { motion } from 'framer-motion'
 import { Heart, Shield, Zap, Activity, CheckCircle } from 'lucide-react'
 import Navigation from '../components/Navigation'
 import Footer from '../components/Footer'
+import { useNavigate } from 'react-router-dom'
+import { useCart } from '../context/CartContext'
 
 const SportsTherapy = () => {
+  const navigate = useNavigate()
+  const { addToCart } = useCart()
   const treatments = [
     "LLLT (Low level laser therapy)",
     "MLD (Manual Lymphatic Drainage) massage",
@@ -269,9 +273,12 @@ const SportsTherapy = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="px-8 py-4 bg-pilates-rose text-white rounded-full hover:bg-pilates-brown transition-all font-medium text-lg"
-              onClick={() => window.location.href = '/#contact'}
+              onClick={() => {
+                addToCart('5') // Sports Therapy Session product ID
+                navigate('/shop')
+              }}
             >
-              Book Initial Consultation
+              Book Therapy Session
             </motion.button>
           </motion.div>
         </div>

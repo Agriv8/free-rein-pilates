@@ -2,8 +2,12 @@ import { motion } from 'framer-motion'
 import { Activity, Target, Heart, Users } from 'lucide-react'
 import Navigation from '../components/Navigation'
 import Footer from '../components/Footer'
+import { useNavigate } from 'react-router-dom'
+import { useCart } from '../context/CartContext'
 
 const EquestrianPilates = () => {
+  const navigate = useNavigate()
+  const { addToCart } = useCart()
   const benefits = [
     "Deeper, more stable seat",
     "Improved balance and symmetry",
@@ -247,9 +251,12 @@ const EquestrianPilates = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="px-8 py-4 bg-pilates-rose text-white rounded-full hover:bg-pilates-brown transition-all font-medium text-lg"
-              onClick={() => window.location.href = '/#contact'}
+              onClick={() => {
+                addToCart('6') // Equestrian Pilates Session product ID
+                navigate('/shop')
+              }}
             >
-              Let's Get Started!
+              Book Equestrian Session
             </motion.button>
           </motion.div>
         </div>

@@ -84,6 +84,26 @@ const Shop = () => {
       category: 'Specialised',
       inventory: 8,
       active: true
+    },
+    {
+      id: '7',
+      name: 'Wrest Park Day Retreat',
+      description: 'Luxury 4-hour retreat at the beautiful Wrest Park Orangery. Includes 3 workshops, refreshments, goodie bag and park day pass.',
+      price: 115.00,
+      images: ['/client-content/Wrest Park Day Retreats.webp'],
+      category: 'Retreats',
+      inventory: 20,
+      active: true
+    },
+    {
+      id: '8',
+      name: 'Center Parcs Woburn Day Retreat',
+      description: 'Coming Soon! Relaxing day retreat at Center Parcs Woburn. Details to be announced.',
+      price: 0.00,
+      images: ['/client-content/Center Parcs Woburn Day Retreats.webp'],
+      category: 'Retreats',
+      inventory: 0,
+      active: false
     }
   ]
 
@@ -92,7 +112,7 @@ const Shop = () => {
     setProducts(sampleProducts)
   }, [])
 
-  const categories = ['all', 'Equipment', 'Sessions', 'Courses', 'Therapy', 'Specialised']
+  const categories = ['all', 'Equipment', 'Sessions', 'Courses', 'Therapy', 'Specialised', 'Retreats']
   
   const filteredProducts = selectedCategory === 'all' 
     ? products 
