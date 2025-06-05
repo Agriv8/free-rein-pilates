@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react'
 import { Menu, X, ChevronDown, ShoppingCart } from 'lucide-react'
-import { useNavigate, useLocation, Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false)
-  const navigate = useNavigate()
   const location = useLocation()
   const { getTotalItems } = useCart()
   
@@ -22,10 +21,23 @@ const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = () => {
+      setIsMobileMenuOpen(false)
+      setServicesDropdownOpen(false)
+    }
+    
+    if (isMobileMenuOpen) {
+      document.addEventListener('click', handleClickOutside)
+      return () => document.removeEventListener('click', handleClickOutside)
+    }
+  }, [isMobileMenuOpen])
+
   const navLinks = [
     { href: '/', label: 'HOME' },
     { 
-      href: '#services', 
+      href: '/book-online', 
       label: 'SERVICES',
       submenu: [
         { href: '/mat-pilates', label: 'Mat Pilates Courses' },
@@ -39,22 +51,14 @@ const Navigation = () => {
     { href: '/shop', label: 'SHOP' },
   ]
 
-  const handleNavClick = (href: string) => {
-    if (href.startsWith('#')) {
-      if (location.pathname !== '/') {
-        navigate('/')
-        setTimeout(() => {
-          const element = document.querySelector(href)
-          element?.scrollIntoView({ behavior: 'smooth' })
-        }, 100)
-      } else {
-        const element = document.querySelector(href)
-        element?.scrollIntoView({ behavior: 'smooth' })
-      }
+  const handleScrollToServices = (e: React.MouseEvent) => {
+    e.preventDefault()
+    if (location.pathname === '/') {
+      const element = document.getElementById('services')
+      element?.scrollIntoView({ behavior: 'smooth' })
     } else {
-      navigate(href)
+      window.location.href = '/#services'
     }
-    setIsMobileMenuOpen(false)
   }
 
   return (
@@ -62,9 +66,9 @@ const Navigation = () => {
       !isHomePage || isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4 md:py-6">
+        <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <div className="flex items-center cursor-pointer" onClick={() => navigate('/')}>
+          <Link to="/" className="flex-shrink-0">
             <img 
               src="/client-content/Main Logo-White-RGB.webp" 
               alt="Free Rein Pilates" 
@@ -72,7 +76,7 @@ const Navigation = () => {
                 !isHomePage || isScrolled ? 'brightness-0' : ''
               }`}
             />
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
@@ -85,6 +89,7 @@ const Navigation = () => {
                     onMouseLeave={() => setServicesDropdownOpen(false)}
                   >
                     <button
+                      onClick={handleScrollToServices}
                       className={`font-medium text-sm tracking-wide transition-colors flex items-center gap-1 ${
                         !isHomePage || isScrolled ? 'text-pilates-dark hover:text-pilates-rose' : 'text-white hover:text-pilates-beige'
                       }`}
@@ -97,43 +102,40 @@ const Navigation = () => {
                       <div className="absolute top-full left-0 pt-2 bg-transparent">
                         <div className="bg-white rounded-xl shadow-xl py-2 min-w-[220px]">
                           {link.submenu.map((sublink) => (
-                            <button
+                            <Link
                               key={sublink.href}
-                              onClick={() => {
-                                handleNavClick(sublink.href)
-                                setServicesDropdownOpen(false)
-                              }}
-                              className="block w-full text-left px-4 py-2 text-pilates-dark hover:bg-pilates-rose/10 hover:text-pilates-rose transition-colors"
+                              to={sublink.href}
+                              className="block px-4 py-2 text-sm text-pilates-dark hover:bg-pilates-rose/10 hover:text-pilates-rose transition-colors"
                             >
                               {sublink.label}
-                            </button>
+                            </Link>
                           ))}
                         </div>
                       </div>
                     )}
                   </div>
                 ) : (
-                  <a
-                    href={link.href}
-                    onClick={(e) => {
-                      e.preventDefault()
-                      handleNavClick(link.href)
-                    }}
+                  <Link
+                    to={link.href}
                     className={`font-medium text-sm tracking-wide transition-colors ${
                       !isHomePage || isScrolled ? 'text-pilates-dark hover:text-pilates-rose' : 'text-white hover:text-pilates-beige'
                     }`}
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 )}
               </div>
             ))}
-            <button 
-              onClick={() => handleNavClick('/book-online')}
+            
+            {/* Book a Class Button */}
+            <Link
+              to="/book-online"
               className="px-6 py-2.5 bg-pilates-rose text-white rounded-full hover:bg-pilates-brown transition-all transform hover:scale-105 text-sm font-medium"
             >
               Book a Class
-            </button>
+            </Link>
+            
+            {/* Shopping Cart */}
             <Link
               to="/shop"
               className={`relative p-2 rounded-full transition-all z-10 inline-block ${
@@ -154,7 +156,10 @@ const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            onClick={(e) => {
+              e.stopPropagation()
+              setIsMobileMenuOpen(!isMobileMenuOpen)
+            }}
             className={`md:hidden p-2 rounded-lg ${
               !isHomePage || isScrolled ? 'text-pilates-dark' : 'text-white'
             }`}
@@ -176,36 +181,33 @@ const Navigation = () => {
                       </div>
                       <div className="pl-4 space-y-2">
                         {link.submenu.map((sublink) => (
-                          <a
+                          <Link
                             key={sublink.href}
-                            href={sublink.href}
-                            onClick={(e) => {
-                              e.preventDefault()
-                              handleNavClick(sublink.href)
-                            }}
+                            to={sublink.href}
+                            onClick={() => setIsMobileMenuOpen(false)}
                             className="block py-2 text-pilates-brown hover:text-pilates-rose transition-colors"
                           >
                             {sublink.label}
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     </>
                   ) : (
-                    <a
-                      href={link.href}
-                      onClick={(e) => {
-                        e.preventDefault()
-                        handleNavClick(link.href)
-                      }}
+                    <Link
+                      to={link.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
                       className="block py-2 text-pilates-dark hover:text-pilates-rose transition-colors font-medium"
                     >
                       {link.label}
-                    </a>
+                    </Link>
                   )}
                 </div>
               ))}
-              <button 
-                onClick={() => handleNavClick('/shop')}
+              
+              {/* Mobile Shopping Cart Button */}
+              <Link 
+                to="/shop"
+                onClick={() => setIsMobileMenuOpen(false)}
                 className="w-full px-6 py-3 bg-pilates-brown text-white rounded-full hover:bg-pilates-dark transition-all text-sm font-medium flex items-center justify-center gap-2"
               >
                 <ShoppingCart size={20} />
@@ -215,13 +217,16 @@ const Navigation = () => {
                     {getTotalItems()}
                   </span>
                 )}
-              </button>
-              <button 
-                onClick={() => handleNavClick('/book-online')}
-                className="w-full px-6 py-3 bg-pilates-rose text-white rounded-full hover:bg-pilates-brown transition-all text-sm font-medium"
+              </Link>
+              
+              {/* Mobile Book a Class Button */}
+              <Link 
+                to="/book-online"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="w-full px-6 py-3 bg-pilates-rose text-white rounded-full hover:bg-pilates-brown transition-all text-sm font-medium text-center"
               >
                 Book a Class
-              </button>
+              </Link>
             </div>
           </div>
         )}
